@@ -324,6 +324,41 @@ body {
     color: var(--text-primary);
 }
 
+.calendar-legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-box {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+}
+
+.completed-box {
+    background: #48BB78;
+    border-color: #48BB78;
+}
+
+.incomplete-box {
+    background: var(--background);
+}
+
+.today-box {
+    background: var(--card-bg);
+    border: 2px solid var(--primary-color);
+}
+
 .calendar-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
@@ -341,6 +376,7 @@ body {
     border: 1px solid var(--border);
     background: var(--background);
     transition: all 0.2s ease;
+    position: relative;
 }
 
 .calendar-day:hover {
@@ -349,14 +385,37 @@ body {
 }
 
 .calendar-day.completed {
-    background: var(--accent-color);
+    background: #48BB78;
     color: white;
-    border-color: var(--accent-color);
+    border-color: #48BB78;
+    font-weight: bold;
+}
+
+.calendar-day.completed:hover {
+    background: #38A169;
+    border-color: #38A169;
+}
+
+.calendar-day .day-number {
+    font-size: 0.75rem;
+    position: absolute;
+    top: 2px;
+    left: 4px;
+}
+
+.calendar-day .checkmark {
+    font-size: 1.25rem;
+    font-weight: bold;
 }
 
 .calendar-day.today {
     border: 2px solid var(--primary-color);
     font-weight: bold;
+}
+
+.calendar-day.today.completed {
+    border: 2px solid #2D3748;
+    box-shadow: 0 0 0 2px #48BB78, 0 0 0 4px #2D3748;
 }
 
 /* Responsive Design */

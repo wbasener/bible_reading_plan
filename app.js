@@ -231,10 +231,13 @@ function renderCalendar() {
     for (let day = 1; day <= 365; day++) {
         const dayDiv = document.createElement('div');
         dayDiv.className = 'calendar-day';
-        dayDiv.textContent = day;
         
+        // Add checkmark for completed days, number for incomplete
         if (completedDays.has(day)) {
             dayDiv.classList.add('completed');
+            dayDiv.innerHTML = `<span class="day-number">${day}</span><span class="checkmark">✓</span>`;
+        } else {
+            dayDiv.textContent = day;
         }
         
         if (day === today) {

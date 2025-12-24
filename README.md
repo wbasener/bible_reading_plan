@@ -11,7 +11,8 @@ A Progressive Web App (PWA) that helps you track your daily Bible reading with f
 ## Features
 - ✅ Daily checkboxes that persist across sessions
 - 📊 Progress tracking with statistics
-- 📅 Calendar view of completed days
+- 📅 Calendar view with **green checkmarks** for completed days
+- 🎯 Visual progress indicators showing completion status
 - 🔄 Switch between different reading plans
 - 📱 Works offline once installed
 - 🌙 Clean, mobile-friendly interface
@@ -64,6 +65,10 @@ A Progressive Web App (PWA) that helps you track your daily Bible reading with f
 4. **Navigate**: Use the date picker or arrow buttons to view different days
 5. **View Progress**: See your completion percentage, current streak, and total days completed
 6. **Calendar View**: Click "View Calendar" to see all 365 days at a glance
+   - **Green boxes with checkmarks** = Completed readings
+   - **Gray boxes** = Not yet completed
+   - **Bold border** = Today's reading
+   - Click any day to jump directly to that reading
 
 ## Files Included
 
