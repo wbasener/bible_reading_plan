@@ -1,6 +1,6 @@
 // Service Worker for Bible Reading Plan App
 
-const CACHE_NAME = 'bible-reader-v1';
+const CACHE_NAME = 'bible-reader-v2';
 const urlsToCache = [
   '/',
   '/index.html',

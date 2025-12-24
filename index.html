@@ -104,31 +104,25 @@
                 </div>
             </div>
 
-            <!-- Calendar View -->
-            <div class="calendar-toggle">
-                <button class="btn-secondary" onclick="toggleCalendar()">
-                    📅 View Calendar
-                </button>
-            </div>
-
-            <div class="calendar-view" id="calendarView" style="display: none;">
+            <!-- Calendar View - Always Visible -->
+            <div class="calendar-view" id="calendarView">
                 <h3>Reading Calendar</h3>
-                <div class="calendar-legend">
-                    <div class="legend-item">
-                        <div class="legend-box completed-box"></div>
-                        <span>Completed</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-box incomplete-box"></div>
-                        <span>Incomplete</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-box today-box"></div>
-                        <span>Today</span>
-                    </div>
+                <div class="calendar-controls">
+                    <button class="btn-secondary" onclick="scrollToToday()">Jump to Today</button>
                 </div>
-                <div class="calendar-grid" id="calendarGrid">
-                    <!-- Calendar will be populated by JavaScript -->
+                <div class="calendar-table-container">
+                    <table class="calendar-table" id="calendarTable">
+                        <thead>
+                            <tr>
+                                <th class="col-status"></th>
+                                <th class="col-date">Date</th>
+                                <th class="col-reading">Reading</th>
+                            </tr>
+                        </thead>
+                        <tbody id="calendarTableBody">
+                            <!-- Calendar rows will be populated by JavaScript -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

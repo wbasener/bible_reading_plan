@@ -306,11 +306,6 @@ body {
 }
 
 /* Calendar */
-.calendar-toggle {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
 .calendar-view {
     background: var(--card-bg);
     border-radius: 12px;
@@ -324,98 +319,124 @@ body {
     color: var(--text-primary);
 }
 
-.calendar-legend {
+.calendar-controls {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
     margin-bottom: 1rem;
     flex-wrap: wrap;
 }
 
-.legend-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+.calendar-table-container {
+    max-height: 600px;
+    overflow-y: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border);
 }
 
-.legend-box {
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+}
+
+.calendar-table thead {
+    position: sticky;
+    top: 0;
+    background: var(--primary-color);
+    color: white;
+    z-index: 10;
+}
+
+.calendar-table th {
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.calendar-table th.col-status {
+    width: 50px;
+    text-align: center;
+}
+
+.calendar-table th.col-date {
+    width: 150px;
+}
+
+.calendar-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.calendar-table tbody tr:hover {
+    background-color: var(--background);
+}
+
+.calendar-table tbody tr.completed {
+    background-color: #E6FFED;
+}
+
+.calendar-table tbody tr.completed:hover {
+    background-color: #C6F6D5;
+}
+
+.calendar-table tbody tr.today {
+    background-color: #FFF9E6;
+    font-weight: 600;
+}
+
+.calendar-table tbody tr.today.completed {
+    background-color: #D4F4DD;
+}
+
+.calendar-table td {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+}
+
+.calendar-table td.col-status {
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+.calendar-table td.col-status .calendar-checkbox {
     width: 20px;
     height: 20px;
-    border-radius: 4px;
-    border: 1px solid var(--border);
-}
-
-.completed-box {
-    background: #48BB78;
-    border-color: #48BB78;
-}
-
-.incomplete-box {
-    background: var(--background);
-}
-
-.today-box {
-    background: var(--card-bg);
-    border: 2px solid var(--primary-color);
-}
-
-.calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-    gap: 0.5rem;
-}
-
-.calendar-day {
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    font-size: 0.875rem;
     cursor: pointer;
-    border: 1px solid var(--border);
-    background: var(--background);
-    transition: all 0.2s ease;
-    position: relative;
+    accent-color: #48BB78;
 }
 
-.calendar-day:hover {
-    transform: scale(1.1);
-    box-shadow: var(--shadow);
+.calendar-table td.col-date {
+    font-weight: 500;
+    color: var(--text-primary);
 }
 
-.calendar-day.completed {
-    background: #48BB78;
-    color: white;
-    border-color: #48BB78;
-    font-weight: bold;
+.calendar-table td.col-reading {
+    color: var(--text-secondary);
+    line-height: 1.6;
 }
 
-.calendar-day.completed:hover {
-    background: #38A169;
-    border-color: #38A169;
-}
-
-.calendar-day .day-number {
-    font-size: 0.75rem;
-    position: absolute;
-    top: 2px;
-    left: 4px;
-}
-
-.calendar-day .checkmark {
-    font-size: 1.25rem;
-    font-weight: bold;
-}
-
-.calendar-day.today {
-    border: 2px solid var(--primary-color);
-    font-weight: bold;
-}
-
-.calendar-day.today.completed {
-    border: 2px solid #2D3748;
-    box-shadow: 0 0 0 2px #48BB78, 0 0 0 4px #2D3748;
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+    .calendar-table th.col-date {
+        width: 100px;
+        font-size: 0.75rem;
+    }
+    
+    .calendar-table td {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .calendar-table td.col-date {
+        font-size: 0.75rem;
+    }
+    
+    .calendar-table td.col-reading {
+        font-size: 0.75rem;
+    }
 }
 
 /* Responsive Design */
@@ -436,10 +457,6 @@ body {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
-    }
-
-    .calendar-grid {
-        grid-template-columns: repeat(7, 1fr);
     }
 }
 

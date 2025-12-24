@@ -592,12 +592,36 @@ const READING_PLANS = {
     }
 };
 
-// Helper function to get day of year (1-365)
-function getDayOfYear(date) {
-    const start = new Date(date.getFullYear(), 0, 0);
+// Helper function to get day of year (1-365) for 2026
+function getDayOfYear2026(date) {
+    // Only calculate day of year if the date is in 2026
+    if (date.getFullYear() !== 2026) {
+        return null; // Not in 2026
+    }
+    
+    const start = new Date(2026, 0, 0);
     const diff = date - start;
     const oneDay = 1000 * 60 * 60 * 24;
     return Math.floor(diff / oneDay);
+}
+
+// Helper function to get current day for initialization
+function getCurrentDay() {
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    
+    // If we're still in 2025 or earlier, start at day 1 (Jan 1, 2026)
+    if (currentYear < 2026) {
+        return 1;
+    }
+    
+    // If we're in 2026, return the current day of year
+    if (currentYear === 2026) {
+        return getDayOfYear2026(today);
+    }
+    
+    // If we're past 2026, return day 365 (end of plan)
+    return 365;
 }
 
 // Helper function to format date

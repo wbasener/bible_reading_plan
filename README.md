@@ -10,12 +10,21 @@ A Progressive Web App (PWA) that helps you track your daily Bible reading with f
 
 ## Features
 - ✅ Daily checkboxes that persist across sessions
-- 📊 Progress tracking with statistics
-- 📅 Calendar view with **green checkmarks** for completed days
+- 📊 Progress tracking with statistics **tracked separately for each plan**
+- 📅 **Always-visible calendar table** showing all 365 days of 2026 with:
+  - **Interactive checkboxes** for each day
+  - **Real-time updates** when any checkbox is toggled
+  - **Date** for each day of 2026
+  - **Full reading assignment** displayed in each row
+  - **Highlighted row** for today's reading (when in 2026)
+  - **Scrollable view** with sticky headers
+  - **Click any row** to jump to that day's reading
 - 🎯 Visual progress indicators showing completion status
-- 🔄 Switch between different reading plans
+- 🔄 Switch between different reading plans (each maintains separate progress)
 - 📱 Works offline once installed
 - 🌙 Clean, mobile-friendly interface
+- 🗓️ **Calendar year: 2026** (starts on January 1, 2026 - a Thursday)
+- 🚀 **Smart start**: Opens to today's date in 2026, or Jan 1 if still in 2025
 
 ## Installation Instructions for Samsung Phone
 
@@ -60,15 +69,24 @@ A Progressive Web App (PWA) that helps you track your daily Bible reading with f
 ## Using the App
 
 1. **First Time**: Select your preferred reading plan
-2. **Daily Reading**: Open the app to see today's reading assignment
-3. **Mark Complete**: Check the box when you finish reading
+2. **Daily Reading**: App opens to today's date (in 2026) or Jan 1, 2026 if still in 2025
+3. **Mark Complete**: 
+   - Check the box at the top when you finish the current day's reading
+   - OR check the box directly in the calendar table for any day
+   - Both checkboxes sync automatically!
 4. **Navigate**: Use the date picker or arrow buttons to view different days
 5. **View Progress**: See your completion percentage, current streak, and total days completed
-6. **Calendar View**: Click "View Calendar" to see all 365 days at a glance
-   - **Green boxes with checkmarks** = Completed readings
-   - **Gray boxes** = Not yet completed
-   - **Bold border** = Today's reading
-   - Click any day to jump directly to that reading
+6. **Switch Plans**: Each plan tracks its own progress separately - checking off days in one plan doesn't affect other plans
+7. **Calendar Table** (Always Visible):
+   - Scrollable table showing all 365 days of 2026
+   - **Green background** = Completed readings
+   - **Yellow highlight** = Today's reading (only when in 2026)
+   - **Checkboxes** = Click to mark any day complete/incomplete
+   - **Date column** = Full date for each day in 2026
+   - **Reading column** = Complete reading assignment
+   - Click "Jump to Today" to scroll to the current day
+   - Click any row to jump to that day's reading at the top
+   - Changes update instantly across the app!
 
 ## Files Included
 
