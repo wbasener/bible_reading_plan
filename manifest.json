@@ -1,0 +1,24 @@
+{
+  "name": "Bible Reading Plan Tracker",
+  "short_name": "Bible Reader",
+  "description": "Track your daily Bible reading with multiple reading plans",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#F7FAFC",
+  "theme_color": "#4A5568",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

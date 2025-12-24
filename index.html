@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4A5568">
+    <meta name="description" content="Bible Reading Plan Tracker - Complete the Bible in a year">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <title>Bible Reading Plan</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📖 Bible Reading Plan</h1>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+            <div class="progress-text" id="progressText">0% Complete</div>
+        </header>
+
+        <!-- Plan Selection -->
+        <div class="plan-selector" id="planSelector">
+            <h2>Choose Your Reading Plan</h2>
+            <div class="plan-cards">
+                <div class="plan-card" onclick="selectPlan('straight')">
+                    <h3>📚 Straight Through</h3>
+                    <p>Read from Genesis to Revelation in order</p>
+                    <small>Genesis 1 → Revelation 22</small>
+                </div>
+                
+                <div class="plan-card" onclick="selectPlan('chronological')">
+                    <h3>⏰ Chronological</h3>
+                    <p>Read the Bible in historical order</p>
+                    <small>Includes Job early, Psalms scattered</small>
+                </div>
+                
+                <div class="plan-card" onclick="selectPlan('52week')">
+                    <h3>📅 52-Week Variety</h3>
+                    <p>Daily readings from different genres</p>
+                    <small>Epistles, Law, History, Psalms, Poetry, Prophecy, Gospels</small>
+                </div>
+                
+                <div class="plan-card" onclick="selectPlan('oneyear')">
+                    <h3>⭐ One Year Bible</h3>
+                    <p>Popular balanced daily readings</p>
+                    <small>OT, NT, Psalms, Proverbs each day</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Reading Interface -->
+        <div class="main-content" id="mainContent" style="display: none;">
+            <!-- Navigation -->
+            <div class="nav-controls">
+                <button class="btn-secondary" onclick="showPlanSelector()">
+                    ← Change Plan
+                </button>
+                <div class="date-nav">
+                    <button class="btn-icon" onclick="previousDay()">‹</button>
+                    <input type="date" id="dateInput" onchange="goToDate()">
+                    <button class="btn-icon" onclick="nextDay()">›</button>
+                </div>
+                <button class="btn-secondary" onclick="goToToday()">
+                    Today
+                </button>
+            </div>
+
+            <!-- Current Plan Name -->
+            <div class="current-plan">
+                <span id="currentPlanName"></span>
+            </div>
+
+            <!-- Reading Card -->
+            <div class="reading-card">
+                <div class="reading-header">
+                    <h2 id="dayLabel">Day 1</h2>
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="completedCheckbox" onchange="toggleCompleted()">
+                        <span class="checkmark"></span>
+                        <span class="checkbox-label">Completed</span>
+                    </label>
+                </div>
+                <div class="reading-content" id="readingContent">
+                    <!-- Reading passages will be inserted here -->
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="stats-card">
+                <div class="stat-item">
+                    <div class="stat-label">Days Completed</div>
+                    <div class="stat-value" id="daysCompleted">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Current Streak</div>
+                    <div class="stat-value" id="currentStreak">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Longest Streak</div>
+                    <div class="stat-value" id="longestStreak">0</div>
+                </div>
+            </div>
+
+            <!-- Calendar View -->
+            <div class="calendar-toggle">
+                <button class="btn-secondary" onclick="toggleCalendar()">
+                    📅 View Calendar
+                </button>
+            </div>
+
+            <div class="calendar-view" id="calendarView" style="display: none;">
+                <h3>Reading Calendar</h3>
+                <div class="calendar-grid" id="calendarGrid">
+                    <!-- Calendar will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="reading-plans.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Register service worker for offline functionality
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('Service Worker registered'))
+                .catch(err => console.log('Service Worker registration failed'));
+        }
+    </script>
+</body>
+</html>
